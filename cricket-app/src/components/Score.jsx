@@ -17,7 +17,9 @@ export default function Score() {
 
 
     let addRunsToOver = () => {
+        console.log(balls);
         if (balls === 7) {
+            console.log(7);
             setBalls(1);
         }
 

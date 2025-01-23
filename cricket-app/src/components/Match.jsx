@@ -4,7 +4,7 @@ export default function Match() {
     const [team, setTeam] = useState(null);
     const [toss, setToss] = useState();
     const [play, setPlay] = useState();
-    const [overs, setOvers] = useState(5);
+    const [overs, setOvers] = useState(0);
 
     let selectTeam = (team) => {
         console.log("selected a team");
@@ -15,6 +15,7 @@ export default function Match() {
         let toss = Math.ceil(Math.random(5) * 10) > 5 ? "Heads" : "Tails";
         setToss(toss);
         selectPlay();
+        setOvers(5);
     }
 
     let selectPlay = () => {
