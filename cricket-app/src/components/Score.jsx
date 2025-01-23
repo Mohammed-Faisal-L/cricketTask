@@ -1,36 +1,45 @@
 import React, { useState } from 'react'
 
 export default function Score() {
-    const [score, setScore] = useState(0);
-    const [overs, setOvers] = useState(0);
-    const [runRate, setRunRate] = useState(0);
-    const [batsman, setBatsman] = useState("Dhoni");
-    const [bowler, setBowler] = useState("Shami");
-    const [balls,setBalls] = useState(0);
+    let [score, setScore] = useState(0);
+    let [overs, setOvers] = useState(0);
+    let [runRate, setRunRate] = useState(0);
+    let [batsman, setBatsman] = useState("Dhoni");
+    let [bowler, setBowler] = useState("Shami");
+    let [balls, setBalls] = useState(0);
 
-    const [first, setFirst] = useState(0);
-    const [second, setSecond] = useState(0);
-    const [third, setThird] = useState(0);
-    const [fourth, setFourth] = useState(0);
-    const [fifth, setFifth] = useState(0);
-    const [sixth, setSixth] = useState(0);
+    let [first, setFirst] = useState(0);
+    let [second, setSecond] = useState(0);
+    let [third, setThird] = useState(0);
+    let [fourth, setFourth] = useState(0);
+    let [fifth, setFifth] = useState(0);
+    let [sixth, setSixth] = useState(0);
 
 
-    const addRunsToOver = (number)=>{
-    console.log(number)
-    //   if () {
-        
-    //   } else if (){
-        
-    //   }else if (){
-        
-    //   }else if (){
-        
-    //   }else if (){
-        
-    //   }else {
-        
-    //   }
+    let addRunsToOver = () => {
+        if (balls === 7) {
+            setBalls(1);
+        }
+
+        setBalls(balls++)
+
+        if (balls === 1) {
+            setFirst(1);
+        } else if (balls === 2) {
+            setSecond(2)
+        } else if (balls === 3) {
+            setThird(3)
+        } else if (balls === 4) {
+            setFourth(4)
+        } else if (balls === 5) {
+            setFifth(5)
+        } else {
+            setSixth(6)
+        }
+    }
+
+    let wickets = () => {
+        setThird("W");
     }
 
     return (
@@ -38,13 +47,13 @@ export default function Score() {
             <h2>{batsman}</h2>
             <h2>{bowler}</h2>
 
-            <button onClick={addRunsToOver(0)}>0</button>
+            <button onClick={addRunsToOver}>0</button>
             <button onClick={addRunsToOver}>1</button>
             <button onClick={addRunsToOver}>2</button>
             <button onClick={addRunsToOver}>3</button>
             <button onClick={addRunsToOver}>4</button>
             <button onClick={addRunsToOver}>6</button>
-            <button onClick={addRunsToOver}>Wicket</button>
+            <button onClick={wickets}>Wicket</button>
 
             <div>
                 <h3>Over Table</h3>
